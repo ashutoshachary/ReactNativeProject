@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button, ImageBackground } from 'react-native';
 import Login from './components/Login';
@@ -10,14 +10,31 @@ import Scroll from './components/ScrollV';
 import FlatListComponent1 from './components/FlatListView';
 import SectionListComponent from './components/SectionListComp';
 import CustomButton from './components/CustomButtonComp';
+import CustomInputs from './components/CustomInput';
+import WelcomeScreen from './components/WelcomeScreeen';
+import CartDemo from './components/CartDemo';
+import UseMemoDemo from './components/globalState/UseMemoDemo';
+import { CartProvider } from './components/OnlyForCart/CartContext1';
+import CartDemo1 from './components/OnlyForCart/CartDemo1';
+import UseRefDemo from './components/globalState/useRefDemo';
+import Welcome from './app/screens/Welcome';
+import Welcome2 from './app/screens/Welcome2'
+import Welcome3 from './app/screens/Welcome3';
+import AppleStyleSwipeableRow from './components/GustureHandler';
+import { LayoutProvider } from './app/hooks/switchingColumn';
+import CustomInput from './components/NewCustomInput';
+import AnimationDemo from './components/AnimationDemo';
 export default function App() {
 
-const [LoginHandler, setLoginHandler] = useState(true)
+  const [LoginHandler, setLoginHandler] = useState(true)
+  const [userProfileData, setUserProfileData] = useState(null);
 
-const ChangeHandler = () =>{
-  setLoginHandler(prevValue=>!prevValue)
-}
-  
+  const ChangeHandler = () => {
+    setLoginHandler(prevValue => !prevValue)
+  }
+  // const [user, setUser] = useState({});
+
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,7 +48,7 @@ const ChangeHandler = () =>{
       {/* <Scroll/> */}
       {/* <FlatListComponent1/> */}
       {/* <SectionListComponent/> */}
-      <View style={styles.buttonContainer}>
+      {/* <View style={styles.buttonContainer}>
                 <CustomButton
                     title="👨‍💼Primary Rounded"
                     onPress={() => alert('Primary Rounded Button Pressed')}
@@ -53,12 +70,80 @@ const ChangeHandler = () =>{
                     variant="primary"
                     size="sm"
                 />
-            </View>
+            </View> */}
+      {/* ----------------------------------- */}
+      {/* <View style={styles.container4}>
+      <CustomInputs.BasicCustomTextInput />
+      <CustomInputs.PasswordInputField />
+      <CustomInputs.InputFieldWithIcon />
+      <CustomInputs.InputFieldWithLabel />
+      <CustomInputs.FloatingLabelInputField />
+      <CustomInputs.InputFieldWithValidation />
+    </View> */}
+      {/* <WelcomeScreen/> */}
+
+      {/* <CartDemo/> */}
+      {/* <UseMemoDemo/> */}
+
+      {/* -------------------------------------------- */}
+
+      {/* <CartProvider>
+      <View style={styles.container5}>
+        <CartDemo1 />
+      </View>
+    </CartProvider> */}
+
+      {/* --------------------------------------------- */}
+
+      {/* <UseRefDemo/> */}
+
+      {/* <Welcome/> */}
+
+
+      {/* For appp--------------------------- */}
+
+      <LayoutProvider>
+   {LoginHandler ? <Login ChangeHandler={ChangeHandler}  setUserProfileData={setUserProfileData}/> : <Welcome2 ChangeHandler={ChangeHandler} userProfileData={userProfileData} />}
+
+   </LayoutProvider>
+
+      {/* -------------------------------------------- */}
+
+ {/* <SafeAreaView >
+  <CustomInput
+        type="rounded"
+        icon="person"
+        placeholder="Username"
+        inputType="username"
+      />
+      <CustomInput
+        type="elevation"
+        icon="email"
+        placeholder="Email"
+        inputType="email"
+      />
+  </SafeAreaView> */}
+      
+
+      {/* <Welcome2/> */}
+      {/* <Welcome3/> */}
+
+
+      {/* <AppleStyleSwipeableRow/> */}
+
+
+      {/* <AnimationDemo/> */}
+
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  container5: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -68,7 +153,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonContainer: {
-    flex:1,
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
     width: '100%',
@@ -76,7 +161,16 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     marginTop: 30,
     backgroundColor: '#fff',
-  
-},
+
+  },
+  container4: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
 
 });
+
+
+
