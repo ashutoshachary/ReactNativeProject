@@ -1,5 +1,6 @@
 import React , {useState}from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, ImageBackground } from 'react-native';
+// import 
 
 var count = 0
 

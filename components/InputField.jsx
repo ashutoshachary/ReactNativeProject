@@ -25,7 +25,7 @@ const InputField = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Input Field</Text>
+            <Text style={styles.title}>Welcome To App</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeEmail}
@@ -73,7 +73,7 @@ const InputField = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
